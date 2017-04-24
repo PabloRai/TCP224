@@ -6,6 +6,8 @@ public abstract class Arma {
 	private int balas;
 	public abstract boolean recargar();
 	public abstract boolean descontarBalas();
+	public abstract boolean seRompio();
+	
 	public Arma(int daño, int cartucho, double rango) {
 		
 		this.daño = daño;

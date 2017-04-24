@@ -1,4 +1,3 @@
-
 public abstract class Personaje {
 	private int salud;
 	private int posX;
@@ -30,15 +29,15 @@ public abstract class Personaje {
 		this.posY = posY;
 	}
 	public boolean puedoDisparar(Personaje atacado){
-		return (salud > 0 && distancia(atacado) && arma.descontarBalas());
+		return (salud > 0 && distancia(atacado) && arma!=null && arma.descontarBalas() && !arma.seRompio());
 	}
 	
 	public boolean disparar(Personaje atacado){
 		if(puedoDisparar(atacado)){
-			atacado.setSalud(atacado.getSalud() - arma.getDaño(this));
-			
+			atacado.setSalud(atacado.getSalud() - this.arma.getDaño(this));
+			return true;
 		}
-		return true;
+		return false;
 	}
 	public Arma devolverArma() {
 		return arma;
@@ -47,7 +46,7 @@ public abstract class Personaje {
 		this.arma = arma;
 	}
 	private boolean distancia(Personaje atacado){
-		return (Math.sqrt(Math.pow(posX-atacado.getPosX(), 2)+Math.pow(posY-atacado.getPosY(), 2)) >= this.arma.getRango()) ? true : false;
+		return (Math.sqrt(Math.pow(posX-atacado.getPosX(), 2)+Math.pow(posY-atacado.getPosY(), 2)) <= this.arma.getRango()) ? true : false;
 		
 	}
 	

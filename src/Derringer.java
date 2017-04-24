@@ -1,6 +1,7 @@
 
 public class Derringer extends Arma {
 	private int durabilidad =8;
+	
 	public int getDurabilidad() {
 		return durabilidad;
 	}
@@ -13,7 +14,7 @@ public class Derringer extends Arma {
 
 	@Override
 	public boolean recargar() {
-		if(this.getBalas() == this.getCartucho())
+		if(this.getBalas() == this.getCartucho() ||   seRompio())
 			return false;
 		this.setBalas(this.getCartucho());
 		return true;
@@ -22,7 +23,7 @@ public class Derringer extends Arma {
 
 	@Override
 	public boolean descontarBalas() {
-		if(this.getBalas() != 0){
+		if(this.getBalas() != 0 && !seRompio()){
 			this.setBalas(this.getBalas() -1);
 			durabilidad--;
 			return true;

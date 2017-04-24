@@ -24,7 +24,13 @@ public class Winchester extends Arma {
 		}
 		if (this.getBalas() > 0)
 			this.setBalas(this.getBalas() -1);
-			return true;
+		return true;
+	}
+
+	@Override
+	public boolean seRompio() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
