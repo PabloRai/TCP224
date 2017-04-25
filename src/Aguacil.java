@@ -6,4 +6,10 @@ public class Aguacil extends Personaje {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public boolean disparar(Peleable atacando,Peleable atacado) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

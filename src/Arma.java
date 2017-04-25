@@ -13,7 +13,7 @@ public abstract class Arma {
 		this.daño = daño;
 		this.cartucho = cartucho;
 		this.rango = rango;
-		this.setBalas(cartucho);
+		this.balas=cartucho;
 		
 	}
 

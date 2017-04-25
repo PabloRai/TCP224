@@ -5,4 +5,10 @@ public class Renegado extends Personaje {
 		super(9, x, y);
 	}
 
+	@Override
+	public boolean disparar(Peleable atacand,Peleable atacado) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
