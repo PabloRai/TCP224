@@ -4,8 +4,9 @@ public class Main {
 	public static void main(String[] args) {
 		Aguacil ag = new Aguacil(4,3);
 		Personaje sh = new Sheriff(4,4);
+		Arma test = new Colt45();
 		ag.agarrarArma(new Winchester());
-		sh.agarrarArma(new Colt45());
+		sh.agarrarArma(test);
 		System.out.println(sh.devolverArma().getDaño(sh));
 //		//System.out.println(ag.devolverArma().getDaño(ag));
 //		System.out.println(sh.devolverArma().getDaño(sh));
