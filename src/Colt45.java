@@ -32,7 +32,6 @@ public class Colt45 extends Arma {
 
 	@Override
 	public boolean seRompio() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

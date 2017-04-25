@@ -1,8 +1,8 @@
-public abstract class Personaje {
+public abstract class Personaje implements Peleable {
 	private int salud;
 	private int posX;
 	private int posY;
-	private Arma arma;
+	protected Arma arma;
 	public Personaje(int salud,int x,int y) {
 		this.salud = salud;
 		this.posX = x;
@@ -28,11 +28,11 @@ public abstract class Personaje {
 	public void setPosY(int posY) {
 		this.posY = posY;
 	}
-	public boolean puedoDisparar(Personaje atacado){
+	public boolean puedoDisparar(Peleable atacado){
 		return (salud > 0 && distancia(atacado) && arma!=null && arma.descontarBalas() && !arma.seRompio());
 	}
 	
-	public boolean disparar(Personaje atacado){
+	public boolean disparar(Peleable atacado){
 		if(puedoDisparar(atacado)){
 			atacado.setSalud(atacado.getSalud() - this.arma.getDaño(this));
 			return true;
@@ -45,8 +45,8 @@ public abstract class Personaje {
 	public void agarrarArma(Arma arma) {
 		this.arma = arma;
 	}
-	private boolean distancia(Personaje atacado){
-		return (Math.sqrt(Math.pow(posX-atacado.getPosX(), 2)+Math.pow(posY-atacado.getPosY(), 2)) <= this.arma.getRango()) ? true : false;
+	private boolean distancia(Peleable atacado){
+		return (Math.sqrt(Math.pow(posX-atacado.getPosX(), 2)+Math.pow(posY-atacado.getPosX(), 2)) <= this.arma.getRango()) ? true : false;
 		
 	}
 	

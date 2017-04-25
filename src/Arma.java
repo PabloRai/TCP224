@@ -17,13 +17,10 @@ public abstract class Arma {
 		
 	}
 
-	public  int getDaño(Personaje sh){
+	public  int getDaño(Peleable asd){
 		return daño;
 	}
 	
-	public  int getDaño(Sheriff sh){
-		return daño;
-	}
 	public void setDaño(int daño) {
 		this.daño = daño;
 	}
