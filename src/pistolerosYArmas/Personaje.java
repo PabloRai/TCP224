@@ -47,7 +47,7 @@ public abstract class Personaje {
 		this.arma = arma;
 	}
 	public int getDaño(){
-		return 1;
+		return arma.getDaño(this);
 	}
 	private boolean distancia(Personaje atacado){
 		return (Math.sqrt(Math.pow(posX-atacado.getPosX(), 2)+Math.pow(posY-atacado.getPosY(), 2)) <= this.arma.getRango()) ? true : false;
