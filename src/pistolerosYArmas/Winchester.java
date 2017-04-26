@@ -1,8 +1,9 @@
+package pistolerosYArmas;
 
-public class Colt45 extends Arma {
-
-	public Colt45() {
-		super(2, 6, 10);
+public class Winchester extends Arma {
+	private boolean puedoDisparar=true;
+	public Winchester() {
+		super(3, 2, 4);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -11,23 +12,20 @@ public class Colt45 extends Arma {
 		if(this.getBalas() == this.getCartucho())
 			return false;
 		this.setBalas(this.getCartucho());
+		puedoDisparar=false;
 		return true;
 	}
 
 
 	@Override
 	public boolean descontarBalas() {
-		if(this.getBalas() != 0){
-			this.setBalas(this.getBalas() -1);
-			
-			return true;
+		if(!puedoDisparar){
+			puedoDisparar = true;
+			return false;
 		}
-		return false;
-	}
-	
-	
-	public int getDaño(Sheriff sh){
-		return 5;
+		if (this.getBalas() > 0)
+			this.setBalas(this.getBalas() -1);
+		return true;
 	}
 
 	@Override
@@ -35,7 +33,5 @@ public class Colt45 extends Arma {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-
 
 }

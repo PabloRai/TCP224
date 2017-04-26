@@ -1,3 +1,4 @@
+package pistolerosYArmas;
 
 public class Derringer extends Arma {
 	private int durabilidad =8;

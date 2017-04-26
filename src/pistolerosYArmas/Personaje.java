@@ -1,3 +1,4 @@
+package pistolerosYArmas;
 public abstract class Personaje {
 	private int salud;
 	private int posX;

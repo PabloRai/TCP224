@@ -1,3 +1,4 @@
+package pistolerosYArmas;
 
 public class Sheriff extends Personaje {
 	

@@ -1,3 +1,4 @@
+package pistolerosYArmas;
 
 public abstract class Arma {
 	private int daño;

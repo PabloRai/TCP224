@@ -1,3 +1,4 @@
+package pistolerosYArmas;
 
 public class Alguacil extends Personaje {
 
