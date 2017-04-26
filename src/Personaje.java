@@ -2,7 +2,7 @@ public abstract class Personaje {
 	private int salud;
 	private int posX;
 	private int posY;
-	private Arma arma;
+	protected Arma arma;
 	public Personaje(int salud,int x,int y) {
 		this.salud = salud;
 		this.posX = x;
@@ -34,7 +34,7 @@ public abstract class Personaje {
 	
 	public boolean disparar(Personaje atacado){
 		if(puedoDisparar(atacado)){
-			atacado.setSalud(atacado.getSalud() - this.arma.getDaño(this));
+			atacado.recibirDaño(this.getDaño());
 			return true;
 		}
 		return false;
@@ -45,9 +45,15 @@ public abstract class Personaje {
 	public void agarrarArma(Arma arma) {
 		this.arma = arma;
 	}
+	public int getDaño(){
+		return 1;
+	}
 	private boolean distancia(Personaje atacado){
 		return (Math.sqrt(Math.pow(posX-atacado.getPosX(), 2)+Math.pow(posY-atacado.getPosY(), 2)) <= this.arma.getRango()) ? true : false;
 		
+	}
+	private void recibirDaño(int daño){
+		this.salud-=daño;
 	}
 	
 }

@@ -5,6 +5,9 @@ public class Sheriff extends Personaje {
 		super(10, x,y);
 		
 	}
+	public int getDaño(){
+		return arma.getDaño(this);
+	}
 
 
 
