@@ -78,4 +78,38 @@ public class TesteoDaños {
 		sh.agarrarArma(new Winchester());
 		Assert.assertEquals(3, sh.getDaño());
 	}
+	////////////////////////////////
+	
+	@Test
+	public void romperDerringer(){
+		Personaje rg = new Renegado(2,3);
+		Personaje sh = new Sheriff(2,2);
+		rg.agarrarArma(new Derringer());
+
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 2; j++) {
+				Assert.assertTrue(rg.disparar(sh));
+			}
+			if(i!=3){
+				Assert.assertTrue(rg.recargar());
+			}
+			else{
+				//Se rompe la Derringer
+				Assert.assertFalse(rg.recargar());
+			}
+		}
+	}
+	
+	@Test
+	public void perderTurnoWinchester(){
+		Personaje al = new Alguacil(2,2);
+		Personaje sh = new Sheriff(2,3);
+		al.agarrarArma(new Winchester());
+		Assert.assertTrue(al.disparar(sh));
+		Assert.assertTrue(al.recargar());
+		// No puedo disparar en el siguiente turno
+		Assert.assertFalse(al.disparar(sh));
+		Assert.assertTrue(al.disparar(sh));
+		
+	}
 }
